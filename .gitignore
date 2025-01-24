@@ -1,23 +1,18 @@
-If GitHub does not provide an Angular option in the built-in templates, you can manually add a `.gitignore` file after creating the repository. Here is the content you can use for the `.gitignore` file:
-
-```plaintext
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
 /dist
 /tmp
 /out-tsc
+# Only exists if Bazel was run
+/bazel-out
 
-# System files
-.DS_Store
-Thumbs.db
+# dependencies
+/node_modules
 
-# Angular specific
-.angular
-.angular/cache
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
@@ -34,34 +29,18 @@ Thumbs.db
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history/*
 
 # misc
 /.sass-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+npm-debug.log
+yarn-error.log
 testem.log
 /typings
 
-# e2e
-/e2e/*.js
-/e2e/*.map
-
-# Service worker
-/ngsw-worker.js
-
-# Environment variables
-.env
-.env.*
-```
-
-1. Create a new file named `.gitignore` in the root of your repository.
-2. Copy and paste the above content into the `.gitignore` file.
-3. Commit and push the `.gitignore` file to your repository.
-
-This will ensure that the appropriate files and directories are ignored in your Angular project.
-
-Similar code found with 1 license type
+# System Files
+.DS_Store
+Thumbs.db
