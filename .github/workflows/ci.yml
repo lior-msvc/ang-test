@@ -27,18 +27,17 @@ jobs:
       run: npm install
 
     - name: Build Angular project
-      run: npm run build -- --prod
+      run: ng build --prod --output-path docs --base-href /ang-test/
 
-    - name: Configure Git
+    - name: Move index.html to 404.html
+      run: mv docs/index.html docs/404.html
+
+    - name: Commit and push changes
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        personal_token: ${{ secrets.GH_PAT }}
-        publish_dir: ./dist/ang-test
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
+        git add docs
+        git commit -m "Deploy to GitHub Pages"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
