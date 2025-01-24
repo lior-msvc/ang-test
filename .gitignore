@@ -1,0 +1,67 @@
+If GitHub does not provide an Angular option in the built-in templates, you can manually add a `.gitignore` file after creating the repository. Here is the content you can use for the `.gitignore` file:
+
+```plaintext
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Angular specific
+.angular
+.angular/cache
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+testem.log
+/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# Service worker
+/ngsw-worker.js
+
+# Environment variables
+.env
+.env.*
+```
+
+1. Create a new file named `.gitignore` in the root of your repository.
+2. Copy and paste the above content into the `.gitignore` file.
+3. Commit and push the `.gitignore` file to your repository.
+
+This will ensure that the appropriate files and directories are ignored in your Angular project.
+
+Similar code found with 1 license type
